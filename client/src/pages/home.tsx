@@ -152,11 +152,11 @@ function Hero() {
     <section ref={ref} className="relative h-screen flex items-center justify-center overflow-hidden" data-testid="hero-section">
       <motion.div style={{ scale }} className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/70 to-background z-10" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(38_75%_55%_/_0.06)_0%,_transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(265_70%_60%_/_0.08)_0%,_transparent_70%)]" />
         <div
           className="absolute inset-0 opacity-20"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a54e' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%238b5cf6' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
           }}
         />
       </motion.div>
@@ -382,7 +382,7 @@ const services = [
 function Services() {
   return (
     <section id="services" className="py-32 relative" data-testid="services-section">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_hsl(38_75%_55%_/_0.03)_0%,_transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_hsl(265_70%_60%_/_0.05)_0%,_transparent_50%)]" />
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <motion.div
           initial="hidden"
@@ -496,7 +496,7 @@ function Fleet() {
                 <span
                   className={`text-[10px] uppercase tracking-[0.15em] px-3 py-1.5 rounded-full ${
                     item.status === "Available Now"
-                      ? "text-emerald-400 bg-emerald-400/10 border border-emerald-400/20"
+                      ? "text-violet-400 bg-violet-400/10 border border-violet-400/20"
                       : "text-muted-foreground bg-white/5 border border-white/10"
                   }`}
                 >
@@ -537,7 +537,7 @@ const reasons = [
 function WhyUs() {
   return (
     <section id="why-us" className="py-32 relative" data-testid="why-us-section">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_hsl(38_75%_55%_/_0.04)_0%,_transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_hsl(265_70%_60%_/_0.05)_0%,_transparent_50%)]" />
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <motion.div
           initial="hidden"
