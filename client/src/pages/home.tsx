@@ -657,31 +657,7 @@ function WhyUs() {
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
           variants={staggerContainer}
-          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
-        >
-          {reasons.map((reason, i) => (
-            <motion.div
-              key={reason.title}
-              variants={fadeUp}
-              custom={i}
-              className="text-center group"
-              data-testid={`reason-card-${i}`}
-            >
-              <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/15 flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/15 group-hover:scale-105 transition-all duration-500">
-                <reason.icon size={24} className="text-primary" />
-              </div>
-              <h3 className="text-base font-semibold mb-2">{reason.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed max-w-xs mx-auto">{reason.description}</p>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={staggerContainer}
-          className="mt-24 grid grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-5"
         >
           {[
             { icon: ClipboardCheck, value: "10+", label: "Projects Completed" },
@@ -693,14 +669,38 @@ function WhyUs() {
               key={stat.label}
               variants={fadeUp}
               custom={i}
-              className="glass rounded-2xl p-8 text-center group hover:bg-white/[0.06] transition-all duration-500"
+              className="glass rounded-2xl p-7 text-center group hover:bg-white/[0.06] transition-all duration-500"
               data-testid={`stat-card-${i}`}
             >
-              <div className="w-14 h-14 rounded-xl bg-primary/10 border border-primary/15 flex items-center justify-center mx-auto mb-5 group-hover:bg-primary/15 group-hover:scale-105 transition-all duration-500">
-                <stat.icon size={24} className="text-primary" />
+              <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/15 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/15 group-hover:scale-105 transition-all duration-500">
+                <stat.icon size={20} className="text-primary" />
               </div>
               <p className="text-3xl sm:text-4xl font-serif text-gradient font-semibold">{stat.value}</p>
               <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground mt-2">{stat.label}</p>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={staggerContainer}
+          className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-5"
+        >
+          {reasons.map((reason, i) => (
+            <motion.div
+              key={reason.title}
+              variants={fadeUp}
+              custom={i}
+              className="glass rounded-2xl p-7 text-center group hover:bg-white/[0.06] transition-all duration-500"
+              data-testid={`reason-card-${i}`}
+            >
+              <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/15 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/15 group-hover:scale-105 transition-all duration-500">
+                <reason.icon size={20} className="text-primary" />
+              </div>
+              <h3 className="text-sm font-semibold mb-1.5">{reason.title}</h3>
+              <p className="text-muted-foreground text-xs leading-relaxed">{reason.description}</p>
             </motion.div>
           ))}
         </motion.div>
