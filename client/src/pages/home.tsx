@@ -19,6 +19,10 @@ import {
   Target,
   Eye,
   Check,
+  ClipboardCheck,
+  CalendarClock,
+  Handshake,
+  Award,
 } from "lucide-react";
 
 const fadeUp = {
@@ -223,9 +227,9 @@ function Hero() {
           className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-md mx-auto"
         >
           {[
-            { value: "10+", label: "Years Experience" },
-            { value: "500+", label: "Projects Delivered" },
-            { value: "24/7", label: "Support Available" },
+            { value: "10+", label: "Projects Completed" },
+            { value: "200+", label: "Clients Served" },
+            { value: "99%", label: "Satisfaction Rate" },
           ].map((stat) => (
             <div key={stat.label} className="text-center" data-testid={`hero-stat-${stat.label.toLowerCase().replace(" ", "-")}`}>
               <p className="text-2xl sm:text-3xl font-serif text-gradient font-semibold">{stat.value}</p>
@@ -579,6 +583,35 @@ function WhyUs() {
               </div>
               <h3 className="text-base font-semibold mb-2">{reason.title}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed max-w-xs mx-auto">{reason.description}</p>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={staggerContainer}
+          className="mt-24 grid grid-cols-2 lg:grid-cols-4 gap-6"
+        >
+          {[
+            { icon: ClipboardCheck, value: "10+", label: "Projects Completed" },
+            { icon: CalendarClock, value: "5+", label: "Ongoing Projects" },
+            { icon: Handshake, value: "200+", label: "Clients Served" },
+            { icon: Award, value: "99%", label: "Satisfaction Rate" },
+          ].map((stat, i) => (
+            <motion.div
+              key={stat.label}
+              variants={fadeUp}
+              custom={i}
+              className="glass rounded-2xl p-8 text-center group hover:bg-white/[0.06] transition-all duration-500"
+              data-testid={`stat-card-${i}`}
+            >
+              <div className="w-14 h-14 rounded-xl bg-primary/10 border border-primary/15 flex items-center justify-center mx-auto mb-5 group-hover:bg-primary/15 group-hover:scale-105 transition-all duration-500">
+                <stat.icon size={24} className="text-primary" />
+              </div>
+              <p className="text-3xl sm:text-4xl font-serif text-gradient font-semibold">{stat.value}</p>
+              <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground mt-2">{stat.label}</p>
             </motion.div>
           ))}
         </motion.div>
