@@ -23,6 +23,11 @@ import {
   CalendarClock,
   Handshake,
   Award,
+  FileCheck,
+  SearchCheck,
+  ListChecks,
+  MapPinned,
+  PackageOpen,
 } from "lucide-react";
 
 const fadeUp = {
@@ -515,6 +520,90 @@ function Fleet() {
   );
 }
 
+const deliverySteps = [
+  { icon: ClipboardCheck, title: "Purchase Order Received", description: "Order Acknowledgement" },
+  { icon: SearchCheck, title: "Availability Check", description: "Confirm Readiness" },
+  { icon: ListChecks, title: "Pre-Trip Checklist", description: "Safety Inspection" },
+  { icon: Wrench, title: "Tour Assignment", description: "Assign Vehicles" },
+  { icon: MapPinned, title: "Driver Arrival & Loading", description: "Pickup & Load Cargo" },
+  { icon: Truck, title: "Delivery to Client", description: "On-Time Transport" },
+  { icon: PackageOpen, title: "Unloading", description: "Cargo Offloading" },
+];
+
+function DeliveryProcess() {
+  return (
+    <section id="process" className="py-32 relative" data-testid="process-section">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(265_70%_60%_/_0.04)_0%,_transparent_60%)]" />
+      <div className="max-w-4xl mx-auto px-6 lg:px-8 relative z-10">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={staggerContainer}
+          className="text-center mb-20"
+        >
+          <motion.span variants={fadeUp} custom={0} className="text-[11px] uppercase tracking-[0.3em] text-primary/70">
+            How It Works
+          </motion.span>
+          <motion.h2
+            variants={fadeUp}
+            custom={1}
+            className="text-3xl sm:text-4xl lg:text-5xl font-serif font-medium mt-4"
+            data-testid="process-title"
+          >
+            Our Delivery <span className="text-gradient italic">Process</span>
+          </motion.h2>
+        </motion.div>
+
+        <div className="relative">
+          <div className="absolute left-6 sm:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/30 via-primary/15 to-transparent sm:-translate-x-px" />
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={staggerContainer}
+            className="space-y-8"
+          >
+            {deliverySteps.map((step, i) => {
+              const isLeft = i % 2 === 0;
+              return (
+                <motion.div
+                  key={step.title}
+                  variants={fadeUp}
+                  custom={i}
+                  className={`relative flex items-center gap-4 sm:gap-0 ${isLeft ? "sm:flex-row" : "sm:flex-row-reverse"}`}
+                  data-testid={`process-step-${i}`}
+                >
+                  <div className="hidden sm:block sm:w-[calc(50%-28px)]">
+                    <div className={`glass rounded-xl p-5 group hover:bg-white/[0.06] transition-all duration-500 ${isLeft ? "text-right" : "text-left"}`}>
+                      <h3 className="text-sm font-semibold mb-1">{step.title}</h3>
+                      <p className="text-xs text-muted-foreground">{step.description}</p>
+                    </div>
+                  </div>
+
+                  <div className="relative z-10 flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-background border-2 border-primary/30 flex items-center justify-center sm:mx-auto">
+                    <step.icon size={18} className="text-primary" />
+                  </div>
+
+                  <div className="sm:w-[calc(50%-28px)] sm:hidden">
+                    <div className="glass rounded-xl p-5">
+                      <h3 className="text-sm font-semibold mb-1">{step.title}</h3>
+                      <p className="text-xs text-muted-foreground">{step.description}</p>
+                    </div>
+                  </div>
+
+                  <div className="hidden sm:block sm:w-[calc(50%-28px)]" />
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 const reasons = [
   {
     icon: Star,
@@ -810,6 +899,7 @@ export default function Home() {
       <About />
       <Services />
       <Fleet />
+      <DeliveryProcess />
       <WhyUs />
       <Contact />
       <Footer />
