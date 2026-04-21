@@ -86,7 +86,7 @@ function Navbar() {
             data-testid="logo-link"
           >
             <img
-              src="/logo.webp"
+              src="/logo.png"
               alt="Noor Ul Hana logo"
               className="w-10 h-10 rounded-lg object-cover"
               loading="eager"
@@ -561,7 +561,8 @@ const fleetShowcase = [
   {
     src: "/2.png",
     title: "Heavy Machinery Movement",
-    description: "Specialized trailers for equipment and industrial deliveries.",
+    description:
+      "Specialized trailers for equipment and industrial deliveries.",
   },
 ];
 
@@ -864,8 +865,12 @@ function WhyUs() {
           className="grid grid-cols-2 lg:grid-cols-4 gap-5"
         >
           {[
-            { icon: ClipboardCheck, value: "10+", label: "Projects Completed" },
-            { icon: CalendarClock, value: "5+", label: "Ongoing Projects" },
+            {
+              icon: ClipboardCheck,
+              value: "100+",
+              label: "Projects Completed",
+            },
+            { icon: CalendarClock, value: "50+", label: "Ongoing Projects" },
             { icon: Handshake, value: "200+", label: "Clients Served" },
             { icon: Award, value: "99%", label: "Satisfaction Rate" },
           ].map((stat, i) => (
@@ -1125,7 +1130,7 @@ function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
             <img
-              src="/logo.webp"
+              src="/logo.png"
               alt="Noor Ul Hana logo"
               className="w-8 h-8 rounded-lg object-cover"
               loading="lazy"
