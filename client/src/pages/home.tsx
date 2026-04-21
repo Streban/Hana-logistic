@@ -77,9 +77,13 @@ function Navbar() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <a href="#" className="flex items-center gap-3" data-testid="logo-link">
-            <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center">
-              <span className="text-primary font-serif font-bold text-lg">N</span>
-            </div>
+            <img
+              src="/logo.webp"
+              alt="Noor Ul Hana logo"
+              className="w-10 h-10 rounded-lg object-cover"
+              loading="eager"
+              decoding="async"
+            />
             <div className="hidden sm:block">
               <p className="text-sm font-semibold tracking-wide text-foreground">Noor Ul Hana</p>
               <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Transport LLC</p>
@@ -866,9 +870,13 @@ function Footer() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center">
-              <span className="text-primary font-serif font-bold text-sm">N</span>
-            </div>
+            <img
+              src="/logo.webp"
+              alt="Noor Ul Hana logo"
+              className="w-8 h-8 rounded-lg object-cover"
+              loading="lazy"
+              decoding="async"
+            />
             <p className="text-sm text-muted-foreground">
               &copy; {new Date().getFullYear()} Noor Ul Hana Transport LLC
             </p>
