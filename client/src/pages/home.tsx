@@ -35,7 +35,11 @@ const fadeUp = {
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: {
+      duration: 0.7,
+      delay: i * 0.1,
+      ease: [0.25, 0.46, 0.45, 0.94],
+    },
   }),
 };
 
@@ -76,7 +80,11 @@ function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <a href="#" className="flex items-center gap-3" data-testid="logo-link">
+          <a
+            href="#"
+            className="flex items-center gap-3"
+            data-testid="logo-link"
+          >
             <img
               src="/logo.webp"
               alt="Noor Ul Hana logo"
@@ -85,8 +93,12 @@ function Navbar() {
               decoding="async"
             />
             <div className="hidden sm:block">
-              <p className="text-sm font-semibold tracking-wide text-foreground">Noor Ul Hana</p>
-              <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Transport LLC</p>
+              <p className="text-sm font-semibold tracking-wide text-foreground">
+                Noor Ul Hana
+              </p>
+              <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                Transport LLC
+              </p>
             </div>
           </a>
 
@@ -156,25 +168,39 @@ function Navbar() {
 
 function Hero() {
   const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 1.1]);
   const y = useTransform(scrollYProgress, [0, 0.5], [0, 100]);
 
   return (
-    <section ref={ref} className="relative h-screen flex items-center justify-center overflow-hidden" data-testid="hero-section">
+    <section
+      ref={ref}
+      className="relative h-screen flex items-center justify-center overflow-hidden"
+      data-testid="hero-section"
+    >
       <motion.div style={{ scale }} className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/70 to-background z-10" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(265_70%_60%_/_0.08)_0%,_transparent_70%)]" />
         <div
-          className="absolute inset-0 opacity-20"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: 'url("/background%20picture.webp")' }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/25 via-background/60 to-background z-10" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(265_70%_60%_/_0.12)_0%,_transparent_70%)] z-10" />
+        <div
+          className="absolute inset-0 opacity-15 z-10"
           style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%238b5cf6' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
           }}
         />
       </motion.div>
 
-      <motion.div style={{ opacity, y }} className="relative z-20 max-w-5xl mx-auto px-6 text-center">
+      <motion.div
+        style={{ opacity, y }}
+        className="relative z-20 max-w-5xl mx-auto px-6 text-center"
+      >
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -182,7 +208,12 @@ function Hero() {
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 mb-8"
         >
           <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-          <span className="text-xs uppercase tracking-[0.2em] text-primary/80" data-testid="hero-badge">Dubai, UAE</span>
+          <span
+            className="text-xs uppercase tracking-[0.2em] text-primary/80"
+            data-testid="hero-badge"
+          >
+            Dubai, UAE
+          </span>
         </motion.div>
 
         <motion.h1
@@ -203,7 +234,8 @@ function Hero() {
           className="text-lg sm:text-xl text-muted-foreground max-w-xl mx-auto mb-10 leading-relaxed font-light"
           data-testid="hero-subtitle"
         >
-          Premium logistics and transportation solutions moving your business forward across the UAE.
+          Premium logistics and transportation solutions moving your business
+          forward across the UAE.
         </motion.p>
 
         <motion.div
@@ -218,7 +250,10 @@ function Hero() {
             className="group flex items-center gap-3 bg-primary text-primary-foreground px-8 py-4 rounded-lg text-sm font-medium hover:bg-primary/90 transition-all duration-300"
           >
             Explore Services
-            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            <ArrowRight
+              size={16}
+              className="group-hover:translate-x-1 transition-transform"
+            />
           </a>
           <a
             href="#contact"
@@ -236,13 +271,21 @@ function Hero() {
           className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-md mx-auto"
         >
           {[
-            { value: "10+", label: "Projects Completed" },
+            { value: "100+", label: "Projects Completed" },
             { value: "200+", label: "Clients Served" },
             { value: "99%", label: "Satisfaction Rate" },
           ].map((stat) => (
-            <div key={stat.label} className="text-center" data-testid={`hero-stat-${stat.label.toLowerCase().replace(" ", "-")}`}>
-              <p className="text-2xl sm:text-3xl font-serif text-gradient font-semibold">{stat.value}</p>
-              <p className="text-[11px] uppercase tracking-[0.15em] text-muted-foreground mt-1">{stat.label}</p>
+            <div
+              key={stat.label}
+              className="text-center"
+              data-testid={`hero-stat-${stat.label.toLowerCase().replace(" ", "-")}`}
+            >
+              <p className="text-2xl sm:text-3xl font-serif text-gradient font-semibold">
+                {stat.value}
+              </p>
+              <p className="text-[11px] uppercase tracking-[0.15em] text-muted-foreground mt-1">
+                {stat.label}
+              </p>
             </div>
           ))}
         </motion.div>
@@ -254,7 +297,10 @@ function Hero() {
         transition={{ duration: 1, delay: 1.5 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
       >
-        <a href="#about" className="flex flex-col items-center gap-2 text-muted-foreground/50 hover:text-muted-foreground transition-colors">
+        <a
+          href="#about"
+          className="flex flex-col items-center gap-2 text-muted-foreground/50 hover:text-muted-foreground transition-colors"
+        >
           <span className="text-[10px] uppercase tracking-[0.3em]">Scroll</span>
           <motion.div
             animate={{ y: [0, 8, 0] }}
@@ -280,7 +326,9 @@ function About() {
             variants={staggerContainer}
           >
             <motion.div variants={fadeUp} custom={0} className="mb-6">
-              <span className="text-[11px] uppercase tracking-[0.3em] text-primary/70">Who We Are</span>
+              <span className="text-[11px] uppercase tracking-[0.3em] text-primary/70">
+                Who We Are
+              </span>
             </motion.div>
             <motion.h2
               variants={fadeUp}
@@ -289,7 +337,9 @@ function About() {
               data-testid="about-title"
             >
               A Decade of{" "}
-              <span className="text-gradient italic block">Trusted Transport</span>
+              <span className="text-gradient italic block">
+                Trusted Transport
+              </span>
             </motion.h2>
             <motion.p
               variants={fadeUp}
@@ -297,14 +347,21 @@ function About() {
               className="text-muted-foreground leading-relaxed mb-6 text-base"
               data-testid="about-description"
             >
-              Noor Ul Hana Transport LLC is a UAE-based logistics and transportation company providing reliable, efficient, and cost-effective transport solutions across various industries. With a strong commitment to professionalism and timely delivery, we ensure safe movement of goods, construction materials, and commercial cargo across the UAE.
+              Noor Ul Hana Transport LLC is a UAE-based logistics and
+              transportation company providing reliable, efficient, and
+              cost-effective transport solutions across various industries. With
+              a strong commitment to professionalism and timely delivery, we
+              ensure safe movement of goods, construction materials, and
+              commercial cargo across the UAE.
             </motion.p>
             <motion.p
               variants={fadeUp}
               custom={3}
               className="text-muted-foreground leading-relaxed text-base"
             >
-              Our experienced team and well-maintained fleet allow us to handle a wide range of transportation requirements including container transport, construction logistics, and general material movement.
+              Our experienced team and well-maintained fleet allow us to handle
+              a wide range of transportation requirements including container
+              transport, construction logistics, and general material movement.
             </motion.p>
           </motion.div>
 
@@ -315,7 +372,12 @@ function About() {
             variants={staggerContainer}
             className="space-y-6"
           >
-            <motion.div variants={fadeUp} custom={0} className="glass rounded-2xl p-8" data-testid="mission-card">
+            <motion.div
+              variants={fadeUp}
+              custom={0}
+              className="glass rounded-2xl p-8"
+              data-testid="mission-card"
+            >
               <div className="flex items-start gap-5">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0">
                   <Target size={20} className="text-primary" />
@@ -323,13 +385,20 @@ function About() {
                 <div>
                   <h3 className="text-lg font-semibold mb-2">Our Mission</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">
-                    To provide reliable and cost-effective transportation solutions while ensuring safety, efficiency, and complete customer satisfaction.
+                    To provide reliable and cost-effective transportation
+                    solutions while ensuring safety, efficiency, and complete
+                    customer satisfaction.
                   </p>
                 </div>
               </div>
             </motion.div>
 
-            <motion.div variants={fadeUp} custom={1} className="glass rounded-2xl p-8" data-testid="vision-card">
+            <motion.div
+              variants={fadeUp}
+              custom={1}
+              className="glass rounded-2xl p-8"
+              data-testid="vision-card"
+            >
               <div className="flex items-start gap-5">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0">
                   <Eye size={20} className="text-primary" />
@@ -337,7 +406,9 @@ function About() {
                 <div>
                   <h3 className="text-lg font-semibold mb-2">Our Vision</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">
-                    To become a trusted logistics and transportation partner in the UAE by delivering consistent service quality and innovative transport solutions.
+                    To become a trusted logistics and transportation partner in
+                    the UAE by delivering consistent service quality and
+                    innovative transport solutions.
                   </p>
                 </div>
               </div>
@@ -353,48 +424,60 @@ const services = [
   {
     icon: Package,
     title: "Sand, Aggregate & Raw Materials",
-    description: "Reliable delivery of construction and industrial materials across the UAE.",
+    description:
+      "Reliable delivery of construction and industrial materials across the UAE.",
   },
   {
     icon: Truck,
     title: "Light & Heavy Truck Cargo",
-    description: "Versatile transport of goods using our fleet of light and heavy trucks.",
+    description:
+      "Versatile transport of goods using our fleet of light and heavy trucks.",
   },
   {
     icon: Container,
     title: "Container Transportation",
-    description: "Safe movement of containers between ports, warehouses, and project sites.",
+    description:
+      "Safe movement of containers between ports, warehouses, and project sites.",
   },
   {
     icon: Wrench,
     title: "Equipment & Machinery",
-    description: "Specialized trailers for moving heavy equipment and industrial machinery.",
+    description:
+      "Specialized trailers for moving heavy equipment and industrial machinery.",
   },
   {
     icon: Shield,
     title: "Construction Logistics",
-    description: "Dedicated transport solutions tailored for construction projects and materials.",
+    description:
+      "Dedicated transport solutions tailored for construction projects and materials.",
   },
   {
     icon: Package,
     title: "Flatbed & Trailer Transport",
-    description: "Transportation of heavy equipment, machinery, and oversized cargo.",
+    description:
+      "Transportation of heavy equipment, machinery, and oversized cargo.",
   },
   {
     icon: Truck,
     title: "Fodder & Animal Feed",
-    description: "Safe and timely transportation of animal feed and fodder products.",
+    description:
+      "Safe and timely transportation of animal feed and fodder products.",
   },
   {
     icon: Package,
     title: "Loose Cargo Transport",
-    description: "Efficient handling and delivery of loose cargo for commercial clients.",
+    description:
+      "Efficient handling and delivery of loose cargo for commercial clients.",
   },
 ];
 
 function Services() {
   return (
-    <section id="services" className="py-32 relative" data-testid="services-section">
+    <section
+      id="services"
+      className="py-32 relative"
+      data-testid="services-section"
+    >
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_hsl(265_70%_60%_/_0.05)_0%,_transparent_50%)]" />
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <motion.div
@@ -404,7 +487,11 @@ function Services() {
           variants={staggerContainer}
           className="text-center mb-20"
         >
-          <motion.span variants={fadeUp} custom={0} className="text-[11px] uppercase tracking-[0.3em] text-primary/70">
+          <motion.span
+            variants={fadeUp}
+            custom={0}
+            className="text-[11px] uppercase tracking-[0.3em] text-primary/70"
+          >
             What We Offer
           </motion.span>
           <motion.h2
@@ -435,8 +522,12 @@ function Services() {
               <div className="w-11 h-11 rounded-xl bg-primary/10 border border-primary/15 flex items-center justify-center mb-5 group-hover:bg-primary/15 transition-colors duration-500">
                 <service.icon size={18} className="text-primary" />
               </div>
-              <h3 className="text-sm font-semibold mb-2 leading-snug">{service.title}</h3>
-              <p className="text-muted-foreground text-xs leading-relaxed">{service.description}</p>
+              <h3 className="text-sm font-semibold mb-2 leading-snug">
+                {service.title}
+              </h3>
+              <p className="text-muted-foreground text-xs leading-relaxed">
+                {service.description}
+              </p>
             </motion.div>
           ))}
         </motion.div>
@@ -447,8 +538,16 @@ function Services() {
 
 const fleet = [
   { name: "Flatbed Trailers", sizes: "40, 45, 50 ft", status: "Available Now" },
-  { name: "Curtain Side Trailers", sizes: "Multiple sizes", status: "Available Now" },
-  { name: "Container Transport Trailers", sizes: "20 & 40 ft", status: "Coming Soon" },
+  {
+    name: "Curtain Side Trailers",
+    sizes: "Multiple sizes",
+    status: "Available Now",
+  },
+  {
+    name: "Container Transport Trailers",
+    sizes: "20 & 40 ft",
+    status: "Coming Soon",
+  },
   { name: "Heavy Equipment Vehicles", sizes: "Various", status: "Coming Soon" },
   { name: "Staff Buses", sizes: "Multiple capacities", status: "Coming Soon" },
 ];
@@ -464,7 +563,11 @@ function Fleet() {
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
           >
-            <motion.span variants={fadeUp} custom={0} className="text-[11px] uppercase tracking-[0.3em] text-primary/70">
+            <motion.span
+              variants={fadeUp}
+              custom={0}
+              className="text-[11px] uppercase tracking-[0.3em] text-primary/70"
+            >
               Our Capabilities
             </motion.span>
             <motion.h2
@@ -480,7 +583,8 @@ function Fleet() {
               custom={2}
               className="text-muted-foreground leading-relaxed text-base max-w-md"
             >
-              Well-maintained vehicles and trailers ready to handle any transportation requirement across the UAE.
+              Well-maintained vehicles and trailers ready to handle any
+              transportation requirement across the UAE.
             </motion.p>
           </motion.div>
 
@@ -503,7 +607,9 @@ function Fleet() {
                   <div className="w-2 h-2 rounded-full bg-primary/60" />
                   <div>
                     <p className="text-sm font-medium">{item.name}</p>
-                    <p className="text-xs text-muted-foreground mt-0.5">{item.sizes}</p>
+                    <p className="text-xs text-muted-foreground mt-0.5">
+                      {item.sizes}
+                    </p>
                   </div>
                 </div>
                 <span
@@ -525,18 +631,42 @@ function Fleet() {
 }
 
 const deliverySteps = [
-  { icon: ClipboardCheck, title: "Purchase Order Received", description: "Order Acknowledgement" },
-  { icon: SearchCheck, title: "Availability Check", description: "Confirm Readiness" },
-  { icon: ListChecks, title: "Pre-Trip Checklist", description: "Safety Inspection" },
+  {
+    icon: ClipboardCheck,
+    title: "Purchase Order Received",
+    description: "Order Acknowledgement",
+  },
+  {
+    icon: SearchCheck,
+    title: "Availability Check",
+    description: "Confirm Readiness",
+  },
+  {
+    icon: ListChecks,
+    title: "Pre-Trip Checklist",
+    description: "Safety Inspection",
+  },
   { icon: Wrench, title: "Tour Assignment", description: "Assign Vehicles" },
-  { icon: MapPinned, title: "Driver Arrival & Loading", description: "Pickup & Load Cargo" },
-  { icon: Truck, title: "Delivery to Client", description: "On-Time Transport" },
+  {
+    icon: MapPinned,
+    title: "Driver Arrival & Loading",
+    description: "Pickup & Load Cargo",
+  },
+  {
+    icon: Truck,
+    title: "Delivery to Client",
+    description: "On-Time Transport",
+  },
   { icon: PackageOpen, title: "Unloading", description: "Cargo Offloading" },
 ];
 
 function DeliveryProcess() {
   return (
-    <section id="process" className="py-32 relative" data-testid="process-section">
+    <section
+      id="process"
+      className="py-32 relative"
+      data-testid="process-section"
+    >
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(265_70%_60%_/_0.04)_0%,_transparent_60%)]" />
       <div className="max-w-4xl mx-auto px-6 lg:px-8 relative z-10">
         <motion.div
@@ -546,7 +676,11 @@ function DeliveryProcess() {
           variants={staggerContainer}
           className="text-center mb-20"
         >
-          <motion.span variants={fadeUp} custom={0} className="text-[11px] uppercase tracking-[0.3em] text-primary/70">
+          <motion.span
+            variants={fadeUp}
+            custom={0}
+            className="text-[11px] uppercase tracking-[0.3em] text-primary/70"
+          >
             How It Works
           </motion.span>
           <motion.h2
@@ -580,9 +714,15 @@ function DeliveryProcess() {
                   data-testid={`process-step-${i}`}
                 >
                   <div className="hidden sm:block sm:w-[calc(50%-28px)]">
-                    <div className={`glass rounded-xl p-5 group hover:bg-white/[0.06] transition-all duration-500 ${isLeft ? "text-right" : "text-left"}`}>
-                      <h3 className="text-sm font-semibold mb-1">{step.title}</h3>
-                      <p className="text-xs text-muted-foreground">{step.description}</p>
+                    <div
+                      className={`glass rounded-xl p-5 group hover:bg-white/[0.06] transition-all duration-500 ${isLeft ? "text-right" : "text-left"}`}
+                    >
+                      <h3 className="text-sm font-semibold mb-1">
+                        {step.title}
+                      </h3>
+                      <p className="text-xs text-muted-foreground">
+                        {step.description}
+                      </p>
                     </div>
                   </div>
 
@@ -592,8 +732,12 @@ function DeliveryProcess() {
 
                   <div className="sm:w-[calc(50%-28px)] sm:hidden">
                     <div className="glass rounded-xl p-5">
-                      <h3 className="text-sm font-semibold mb-1">{step.title}</h3>
-                      <p className="text-xs text-muted-foreground">{step.description}</p>
+                      <h3 className="text-sm font-semibold mb-1">
+                        {step.title}
+                      </h3>
+                      <p className="text-xs text-muted-foreground">
+                        {step.description}
+                      </p>
                     </div>
                   </div>
 
@@ -633,7 +777,11 @@ const reasons = [
 
 function WhyUs() {
   return (
-    <section id="why-us" className="py-32 relative" data-testid="why-us-section">
+    <section
+      id="why-us"
+      className="py-32 relative"
+      data-testid="why-us-section"
+    >
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_hsl(265_70%_60%_/_0.05)_0%,_transparent_50%)]" />
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <motion.div
@@ -643,7 +791,11 @@ function WhyUs() {
           variants={staggerContainer}
           className="text-center mb-20"
         >
-          <motion.span variants={fadeUp} custom={0} className="text-[11px] uppercase tracking-[0.3em] text-primary/70">
+          <motion.span
+            variants={fadeUp}
+            custom={0}
+            className="text-[11px] uppercase tracking-[0.3em] text-primary/70"
+          >
             Our Advantage
           </motion.span>
           <motion.h2
@@ -652,7 +804,8 @@ function WhyUs() {
             className="text-3xl sm:text-4xl lg:text-5xl font-serif font-medium mt-4"
             data-testid="why-us-title"
           >
-            Why Choose <span className="text-gradient italic">Noor Ul Hana</span>
+            Why Choose{" "}
+            <span className="text-gradient italic">Noor Ul Hana</span>
           </motion.h2>
         </motion.div>
 
@@ -679,8 +832,12 @@ function WhyUs() {
               <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/15 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/15 group-hover:scale-105 transition-all duration-500">
                 <stat.icon size={20} className="text-primary" />
               </div>
-              <p className="text-3xl sm:text-4xl font-serif text-gradient font-semibold">{stat.value}</p>
-              <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground mt-2">{stat.label}</p>
+              <p className="text-3xl sm:text-4xl font-serif text-gradient font-semibold">
+                {stat.value}
+              </p>
+              <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground mt-2">
+                {stat.label}
+              </p>
             </motion.div>
           ))}
         </motion.div>
@@ -704,7 +861,9 @@ function WhyUs() {
                 <reason.icon size={20} className="text-primary" />
               </div>
               <h3 className="text-sm font-semibold mb-1.5">{reason.title}</h3>
-              <p className="text-muted-foreground text-xs leading-relaxed">{reason.description}</p>
+              <p className="text-muted-foreground text-xs leading-relaxed">
+                {reason.description}
+              </p>
             </motion.div>
           ))}
         </motion.div>
@@ -714,7 +873,11 @@ function WhyUs() {
 }
 
 function Contact() {
-  const [formState, setFormState] = useState({ name: "", email: "", message: "" });
+  const [formState, setFormState] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -725,7 +888,11 @@ function Contact() {
   };
 
   return (
-    <section id="contact" className="py-32 relative" data-testid="contact-section">
+    <section
+      id="contact"
+      className="py-32 relative"
+      data-testid="contact-section"
+    >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
           <motion.div
@@ -734,7 +901,11 @@ function Contact() {
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
           >
-            <motion.span variants={fadeUp} custom={0} className="text-[11px] uppercase tracking-[0.3em] text-primary/70">
+            <motion.span
+              variants={fadeUp}
+              custom={0}
+              className="text-[11px] uppercase tracking-[0.3em] text-primary/70"
+            >
               Get in Touch
             </motion.span>
             <motion.h2
@@ -756,7 +927,9 @@ function Contact() {
                   <Phone size={18} className="text-primary" />
                 </div>
                 <div>
-                  <p className="text-xs text-muted-foreground uppercase tracking-wider">Phone</p>
+                  <p className="text-xs text-muted-foreground uppercase tracking-wider">
+                    Phone
+                  </p>
                   <p className="text-sm font-medium mt-0.5">+971 55 342 3828</p>
                 </div>
               </a>
@@ -770,18 +943,31 @@ function Contact() {
                   <Mail size={18} className="text-primary" />
                 </div>
                 <div>
-                  <p className="text-xs text-muted-foreground uppercase tracking-wider">Email</p>
-                  <p className="text-sm font-medium mt-0.5">info@noorulhana.com</p>
+                  <p className="text-xs text-muted-foreground uppercase tracking-wider">
+                    Email
+                  </p>
+                  <p className="text-sm font-medium mt-0.5">
+                    info@noorulhana.com
+                  </p>
                 </div>
               </a>
 
-              <div className="flex items-start gap-4" data-testid="contact-address">
+              <div
+                className="flex items-start gap-4"
+                data-testid="contact-address"
+              >
                 <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0">
                   <MapPin size={18} className="text-primary" />
                 </div>
                 <div>
-                  <p className="text-xs text-muted-foreground uppercase tracking-wider">Address</p>
-                  <p className="text-sm font-medium mt-0.5">Ras Al Khor Industrial Second,<br />Dubai, United Arab Emirates</p>
+                  <p className="text-xs text-muted-foreground uppercase tracking-wider">
+                    Address
+                  </p>
+                  <p className="text-sm font-medium mt-0.5">
+                    Ras Al Khor Industrial Second,
+                    <br />
+                    Dubai, United Arab Emirates
+                  </p>
                 </div>
               </div>
             </motion.div>
@@ -801,39 +987,60 @@ function Contact() {
               data-testid="contact-form"
             >
               <div>
-                <label htmlFor="contact-name" className="text-xs uppercase tracking-wider text-muted-foreground mb-2 block">Your Name</label>
+                <label
+                  htmlFor="contact-name"
+                  className="text-xs uppercase tracking-wider text-muted-foreground mb-2 block"
+                >
+                  Your Name
+                </label>
                 <input
                   id="contact-name"
                   type="text"
                   required
                   value={formState.name}
-                  onChange={(e) => setFormState({ ...formState, name: e.target.value })}
+                  onChange={(e) =>
+                    setFormState({ ...formState, name: e.target.value })
+                  }
                   className="w-full bg-white/[0.04] border border-white/10 rounded-lg px-4 py-3.5 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/40 transition-colors"
                   placeholder="Enter your name"
                   data-testid="input-name"
                 />
               </div>
               <div>
-                <label htmlFor="contact-email" className="text-xs uppercase tracking-wider text-muted-foreground mb-2 block">Email Address</label>
+                <label
+                  htmlFor="contact-email"
+                  className="text-xs uppercase tracking-wider text-muted-foreground mb-2 block"
+                >
+                  Email Address
+                </label>
                 <input
                   id="contact-email"
                   type="email"
                   required
                   value={formState.email}
-                  onChange={(e) => setFormState({ ...formState, email: e.target.value })}
+                  onChange={(e) =>
+                    setFormState({ ...formState, email: e.target.value })
+                  }
                   className="w-full bg-white/[0.04] border border-white/10 rounded-lg px-4 py-3.5 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/40 transition-colors"
                   placeholder="Enter your email"
                   data-testid="input-email"
                 />
               </div>
               <div>
-                <label htmlFor="contact-message" className="text-xs uppercase tracking-wider text-muted-foreground mb-2 block">Message</label>
+                <label
+                  htmlFor="contact-message"
+                  className="text-xs uppercase tracking-wider text-muted-foreground mb-2 block"
+                >
+                  Message
+                </label>
                 <textarea
                   id="contact-message"
                   required
                   rows={4}
                   value={formState.message}
-                  onChange={(e) => setFormState({ ...formState, message: e.target.value })}
+                  onChange={(e) =>
+                    setFormState({ ...formState, message: e.target.value })
+                  }
                   className="w-full bg-white/[0.04] border border-white/10 rounded-lg px-4 py-3.5 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/40 transition-colors resize-none"
                   placeholder="Tell us about your transport needs"
                   data-testid="input-message"
