@@ -116,7 +116,7 @@ function Navbar() {
             <a
               href="#contact"
               data-testid="nav-cta"
-              className="text-sm bg-primary text-primary-foreground px-5 py-2.5 rounded-lg font-medium hover:bg-primary/90 transition-all duration-300"
+              className="text-sm bg-primary text-primary-foreground px-5 py-2.5 rounded-lg font-medium border border-primary/40 shadow-[0_10px_30px_hsl(var(--primary)/0.35)] hover:bg-primary/90 hover:shadow-[0_12px_32px_hsl(var(--primary)/0.45)] transition-all duration-300"
             >
               Get a Quote
             </a>
