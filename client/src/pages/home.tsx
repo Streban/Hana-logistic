@@ -88,7 +88,7 @@ function Navbar() {
             <img
               src="/logo.png"
               alt="Noor Ul Hana logo"
-              className="w-10 h-10 rounded-lg object-cover"
+              className="w-16 h-16 rounded-lg object-cover"
               loading="eager"
               decoding="async"
             />
@@ -1132,7 +1132,7 @@ function Footer() {
             <img
               src="/logo.png"
               alt="Noor Ul Hana logo"
-              className="w-8 h-8 rounded-lg object-cover"
+              className="w-12 h-12 rounded-lg object-cover"
               loading="lazy"
               decoding="async"
             />
