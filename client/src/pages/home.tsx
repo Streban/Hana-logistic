@@ -552,6 +552,19 @@ const fleet = [
   { name: "Staff Buses", sizes: "Multiple capacities", status: "Coming Soon" },
 ];
 
+const fleetShowcase = [
+  {
+    src: "/1.png",
+    title: "Container & Flatbed Transport",
+    description: "Long-haul cargo movement with secure flatbed handling.",
+  },
+  {
+    src: "/2.png",
+    title: "Heavy Machinery Movement",
+    description: "Specialized trailers for equipment and industrial deliveries.",
+  },
+];
+
 function Fleet() {
   return (
     <section id="fleet" className="py-32 relative" data-testid="fleet-section">
@@ -625,6 +638,40 @@ function Fleet() {
             ))}
           </motion.div>
         </div>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={staggerContainer}
+          className="mt-12 grid md:grid-cols-2 gap-6"
+          data-testid="fleet-image-showcase"
+        >
+          {fleetShowcase.map((item, i) => (
+            <motion.div
+              key={item.title}
+              variants={fadeUp}
+              custom={i}
+              className="group glass rounded-2xl overflow-hidden"
+            >
+              <div className="aspect-[16/9] overflow-hidden">
+                <img
+                  src={item.src}
+                  alt={item.title}
+                  className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div className="p-5">
+                <h3 className="text-sm font-semibold">{item.title}</h3>
+                <p className="text-xs text-muted-foreground mt-2 leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
